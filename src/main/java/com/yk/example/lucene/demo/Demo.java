@@ -1,4 +1,4 @@
-package com.yk.example.lucene;
+package com.yk.example.lucene.demo;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -52,10 +52,10 @@ public class Demo {
         reader.close();
 
     }
-
-    public static void main(String[] args) throws Exception{
-        Demo demo = new Demo();
-        demo.test();
-    }
+//
+//    public static void main(String[] args) throws Exception{
+//        Demo demo = new Demo();
+//        demo.test();
+//    }
 
 }
