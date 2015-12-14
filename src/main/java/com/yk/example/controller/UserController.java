@@ -20,4 +20,9 @@ public class UserController {
     public Object queryByName(String name) {
         return userRepository.findByName(name);
     }
+
+    @RequestMapping(value = "test",method = RequestMethod.GET)
+    public Object helloWorld() {
+        return "hello , world";
+    }
 }
