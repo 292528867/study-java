@@ -18,4 +18,7 @@ public  class MyRepositoryImp<T,ID extends Serializable>
         super(entityInformation, entityManager);
         this.entityManager = entityManager;
     }
+
+
+
 }
