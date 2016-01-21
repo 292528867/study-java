@@ -15,4 +15,6 @@ public interface MyRepository<T,ID extends Serializable> extends JpaRepository<T
 
 
     <S extends T> S save(S entity);
+
+
 }

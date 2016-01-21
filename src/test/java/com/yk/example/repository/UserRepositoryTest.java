@@ -15,7 +15,8 @@ public class UserRepositoryTest extends ApplicationTest {
         User user = new User();
         user.setName("test");
         user.setTel("111111111");
-        User user1 = userRepository.save(user);
-        System.out.println(user1.getId());
+        User user1 = userRepository.findByName("test");
+        System.out.println(user1.toString());
     }
+
 }

@@ -1,4 +1,4 @@
-package com.yk.example.jpa;
+package com.yk.example.config;
 
 import com.yk.example.repository.MyRepositoryImp;
 import org.springframework.context.annotation.Configuration;

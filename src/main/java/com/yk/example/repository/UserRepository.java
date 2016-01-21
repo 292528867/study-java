@@ -1,6 +1,7 @@
 package com.yk.example.repository;
 
 import com.yk.example.entity.User;
+import org.springframework.cache.annotation.Cacheable;
 
 /**
  * Created by yk on 15/12/8.
