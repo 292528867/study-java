@@ -23,10 +23,6 @@ public class RedisConfig {
     @Value("${spring.redis.port}")
     private int port;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
-
     @Bean
     public CacheManager cacheManager() {
 
