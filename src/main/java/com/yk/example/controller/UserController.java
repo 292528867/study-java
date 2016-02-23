@@ -1,6 +1,7 @@
 package com.yk.example.controller;
 
 import com.yk.example.repository.UserRepository;
+import com.yk.example.security.PreAuthorise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,12 @@ public class UserController {
 
     @RequestMapping(value = "test",method = RequestMethod.GET)
     public Object helloWorld() {
+        return "hello , world";
+    }
+
+    @PreAuthorise
+    @RequestMapping(value = "test2",method = RequestMethod.GET)
+    public Object helloWorld2() {
         return "hello , world";
     }
 }

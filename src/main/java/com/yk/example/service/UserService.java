@@ -43,4 +43,10 @@ public class UserService {
     public User updateUser(User user) {
         return userRepository.save(user);
     }
+
+    @Cacheable(value = "userCache",key = "'study:test:user:token:' + #p0 ")
+    public User findByToken(String token) {
+        return userRepository.findByToken(token);
+    }
+
 }

@@ -25,6 +25,8 @@ public class User implements Serializable {
 
     private String remark;
 
+    private String token;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
      joinColumns = @JoinColumn(name = "user_id"),
@@ -81,5 +83,13 @@ public class User implements Serializable {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

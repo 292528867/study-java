@@ -9,4 +9,6 @@ import org.springframework.cache.annotation.Cacheable;
 public interface UserRepository extends MyRepository<User,Long> {
 
     User findByName(String name);
+
+    User findByToken(String token);
 }
