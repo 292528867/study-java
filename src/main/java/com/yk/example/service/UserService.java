@@ -44,9 +44,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    @Cacheable(value = "userCache",key = "'study:test:user:token:' + #p0 ")
+    @Cacheable(value = "userTokenCache",key = "'study:test:user:token:' + #p0 ")
     public User findByToken(String token) {
         return userRepository.findByToken(token);
+    }
+
+    public void testException(String name) {
+        if (name == null || "".equals(name)) {
+            throw new NullPointerException();
+        }
     }
 
 }

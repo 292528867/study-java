@@ -3,6 +3,8 @@ package com.yk.example.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +36,12 @@ public class RedisConfig {
         return new RedisCacheManager(redisTemplate);
     }
 
+
+    @Bean
+    public Cache userTokenCache(RedisCacheManager cacheManager) {
+        Cache tokenCache = cacheManager.getCache("userTokenCache");
+        return tokenCache;
+    }
 
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
