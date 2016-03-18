@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +16,10 @@ import java.util.Map;
 public class ApplicationExceptionHandler {
 
     @ResponseStatus(HttpStatus.OK)
+    //如果多个异常{NullPointerException.class,......}
     @ExceptionHandler(NullPointerException.class)
     @ResponseBody
-    public Object unauthorized(HttpServletRequest request,Exception e) {
+    public Object unauthorized(Exception e) {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         if (e instanceof NullPointerException) {
             resultMap.put("error","空指针");
