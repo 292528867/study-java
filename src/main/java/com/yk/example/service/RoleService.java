@@ -1,7 +1,7 @@
 package com.yk.example.service;
 
-import com.yk.example.entity.Role;
-import com.yk.example.repository.RoleRepository;
+import com.yk.example.entity.primary.Role;
+import com.yk.example.repository.primary.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;

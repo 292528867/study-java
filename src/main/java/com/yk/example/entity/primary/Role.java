@@ -1,4 +1,4 @@
-package com.yk.example.entity;
+package com.yk.example.entity.primary;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.AbstractPersistable;

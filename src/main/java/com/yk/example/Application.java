@@ -8,8 +8,12 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.yk.example.security.PreAuthorizationInterceptor;
+import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
 import org.apache.catalina.connector.Connector;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
@@ -85,4 +89,6 @@ public class Application {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
+
+
 }

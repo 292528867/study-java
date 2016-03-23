@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.0.RELEASE</version>
+        <version>1.3.3.RELEASE</version>
     </parent>
 
 
@@ -76,18 +76,17 @@
             <artifactId>jackson-datatype-hibernate4</artifactId>
         </dependency>
 
-
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>18.0</version>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
-
+         <!-- activiti -->
         <dependency>
-            <groupId>org.junit4</groupId>
-            <artifactId>org.junit4</artifactId>
-            <version>4.3.1</version>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter-basic</artifactId>
+            <version>5.18.0</version>
         </dependency>
 
     </dependencies>
@@ -97,7 +96,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.3.0.RELEASE</version>
+                <version>1.3.3.RELEASE</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.springframework</groupId>

@@ -1,5 +1,7 @@
-package com.yk.example.entity;
+package com.yk.example.entity.primary;
 
+
+import com.yk.example.entity.primary.Role;
 
 import javax.persistence.*;
 import java.io.Serializable;

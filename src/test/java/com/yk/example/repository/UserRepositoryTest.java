@@ -1,7 +1,8 @@
 package com.yk.example.repository;
 
 import com.yk.example.ApplicationTest;
-import com.yk.example.entity.User;
+import com.yk.example.entity.primary.User;
+import com.yk.example.repository.primary.UserRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

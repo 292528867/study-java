@@ -1,6 +1,5 @@
 package com.yk.example.controller;
 
-import com.yk.example.repository.UserRepository;
 import com.yk.example.security.PreAuthorise;
 import com.yk.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

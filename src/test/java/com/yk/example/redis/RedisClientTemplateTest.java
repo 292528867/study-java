@@ -1,10 +1,6 @@
 package com.yk.example.redis;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yk.example.ApplicationTest;
-import com.yk.example.entity.User;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class RedisClientTemplateTest extends ApplicationTest {
 

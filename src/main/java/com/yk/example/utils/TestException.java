@@ -61,13 +61,13 @@ public class TestException {
         }
     }
 
-//    public static void main(String[] args) {
-//        TestException testException1 = new TestException();
-//        try {
-//            testException1.testEx();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+/*    public static void main(String[] args) {
+        TestException testException1 = new TestException();
+        try {
+            testException1.testEx();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
 }
 

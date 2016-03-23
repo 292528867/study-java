@@ -1,7 +1,7 @@
-package com.yk.example.repository;
+package com.yk.example.repository.primary;
 
-import com.yk.example.entity.User;
-import org.springframework.cache.annotation.Cacheable;
+import com.yk.example.entity.primary.User;
+import com.yk.example.repository.MyRepository;
 
 /**
  * Created by yk on 15/12/8.

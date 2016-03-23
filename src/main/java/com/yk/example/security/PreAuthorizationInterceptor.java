@@ -1,6 +1,6 @@
 package com.yk.example.security;
 
-import com.yk.example.entity.User;
+import com.yk.example.entity.primary.User;
 import com.yk.example.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.context.WebApplicationContext;

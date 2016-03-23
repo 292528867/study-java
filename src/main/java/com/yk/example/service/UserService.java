@@ -1,12 +1,14 @@
 package com.yk.example.service;
 
-import com.yk.example.entity.User;
-import com.yk.example.repository.UserRepository;
+import com.yk.example.entity.primary.User;
+import com.yk.example.repository.primary.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * Created by yk on 16/1/20.
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Component;
 public class UserService {
 
     @Autowired
+    @Resource()
     private UserRepository userRepository;
 
 

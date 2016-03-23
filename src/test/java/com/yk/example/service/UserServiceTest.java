@@ -1,11 +1,9 @@
 package com.yk.example.service;
 
 import com.yk.example.ApplicationTest;
-import com.yk.example.entity.User;
+import com.yk.example.entity.primary.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
 
 public class UserServiceTest extends ApplicationTest {
 
