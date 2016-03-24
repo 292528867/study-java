@@ -2,13 +2,12 @@ package com.yk.example.service;
 
 import com.yk.example.entity.primary.User;
 import com.yk.example.repository.primary.UserRepository;
+import com.yk.example.repository.secondary.UserSecondaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * Created by yk on 16/1/20.
@@ -17,8 +16,10 @@ import javax.annotation.Resource;
 public class UserService {
 
     @Autowired
-    @Resource()
     private UserRepository userRepository;
+
+    @Autowired
+    private UserSecondaryRepository userSecondaryRepository;
 
 
     @Cacheable(cacheNames = "userCache", key = "'study:test:user:' + #p0 ")
@@ -50,6 +51,11 @@ public class UserService {
     @Cacheable(value = "userTokenCache",key = "'study:test:user:token:' + #p0 ")
     public User findByToken(String token) {
         return userRepository.findByToken(token);
+    }
+
+    public void testTwoDatasource() {
+        System.out.println(userRepository.findAll());
+        System.out.println(userSecondaryRepository.findAll());
     }
 
     public void testException(String name) {

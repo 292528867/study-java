@@ -29,4 +29,9 @@ public class UserServiceTest extends ApplicationTest {
         user.setName("test");
         userService.updateUser(user);
     }
+
+    @Test
+    public void testTwoDataSource() {
+        userService.testTwoDatasource();
+    }
 }
