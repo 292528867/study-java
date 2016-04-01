@@ -15,23 +15,18 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableSwagger
-@EnableAutoConfiguration
 public class SwaggerConfig {
 
-
+    @Autowired
     private SpringSwaggerConfig springSwaggerConfig;
 
-    @Autowired
-    public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig) {
-        this.springSwaggerConfig = springSwaggerConfig;
-    }
 
     @Bean
     public SwaggerSpringMvcPlugin customImplementation() {
         return  new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
                 .apiInfo(new ApiInfo("api", "desc", null, null, null, null))
                 .useDefaultResponseMessages(false)
-                .includePatterns("/user.*");
+                .includePatterns("/*.*");
     }
 
 
