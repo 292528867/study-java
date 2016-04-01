@@ -22,6 +22,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.util.SocketUtils;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -37,7 +38,8 @@ public class Application {
     @Value("${jackson.indent.output}")
     private boolean jacksonIndentOutput = false;
 
-    @Bean
+
+/*    @Bean
     public Integer port() {
         return SocketUtils.findAvailableTcpPort();
     }
@@ -53,9 +55,12 @@ public class Application {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setPort(port());
         return connector;
-    }
+    }*/
 
-
+    /**
+     * 跨域配置
+     * @return
+     */
     @Bean
     public WebMvcConfigurerAdapter webMvcConfigurerAdapter() {
         return new WebMvcConfigurerAdapter() {
@@ -63,10 +68,17 @@ public class Application {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new PreAuthorizationInterceptor());
             }
+
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedMethods(new String[]{"HEAD", "GET", "POST", "PUT", "DELETE"});
+            }
         };
     }
 
-
+    /**
+     * jackson
+     * @return
+     */
     @Bean
     @Primary
     public ObjectMapper objectMapper() {

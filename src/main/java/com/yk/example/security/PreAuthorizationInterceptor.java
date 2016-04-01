@@ -43,7 +43,7 @@ public class PreAuthorizationInterceptor extends HandlerInterceptorAdapter {
                 User user = userService.findByToken(token);
                 if (user == null) {
                     response.sendError(HttpStatus.FORBIDDEN.value());
-                    return false;
+                    return true;
                 }
             }
         }
