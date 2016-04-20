@@ -39,7 +39,7 @@ public class Application {
     private boolean jacksonIndentOutput = false;
 
 
-/*    @Bean
+ /*   @Bean
     public Integer port() {
         return SocketUtils.findAvailableTcpPort();
     }
@@ -64,14 +64,17 @@ public class Application {
     @Bean
     public WebMvcConfigurerAdapter webMvcConfigurerAdapter() {
         return new WebMvcConfigurerAdapter() {
+            //拦截器
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new PreAuthorizationInterceptor());
             }
-
+            //跨域
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedMethods(new String[]{"HEAD", "GET", "POST", "PUT", "DELETE"});
             }
+
+
         };
     }
 
