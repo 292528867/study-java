@@ -1,5 +1,6 @@
 package com.yk.example.utils;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
@@ -10,15 +11,16 @@ import java.util.Map;
  */
 public class HashMapTest {
 
-//    public static final Map<String,String> map = new HashMap();
-    public static final Map<String,String> map = new Hashtable<String, String>();
+    //    public static final Map<String,String> map = new HashMap();
+    public static final Map<String, String> map = new Hashtable<String, String>();
 //    public static final Map<String, String> map = Collections.synchronizedMap(new HashMap<String, String>());
 
     /**
      * 非线程安全
+     *
      * @throws Exception
      */
-    public  static void testIsTreadSecurity() throws Exception{
+    public static void testIsTreadSecurity() throws Exception {
         Thread t1 = new Thread() {
             public void run() {
                 for (int i = 0; i < 200; i++) {
@@ -63,8 +65,12 @@ public class HashMapTest {
         }
     }
 
-//    public static void main(String[] args) throws Exception {
-////        HashMapTest.testIsTreadSecurity();
+   /* public static void main(String[] args) throws Exception {
+//        HashMapTest.testIsTreadSecurity();
 //          HashMapTest.compareToHashTable();
-//    }
+        System.out.println(2.0-1.1);
+        BigDecimal bd = new BigDecimal(2.0-1.1);
+        System.out.println(bd.floatValue());
+        System.out.println(2.0/0);
+    }*/
 }

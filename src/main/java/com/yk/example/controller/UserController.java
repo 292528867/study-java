@@ -1,5 +1,9 @@
 package com.yk.example.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.yk.example.entity.primary.User;
 import com.yk.example.security.PreAuthorise;
@@ -21,11 +25,24 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @RequestMapping(value = "queryByName",method = RequestMethod.GET)
     @ApiOperation(value = "查询用户",response = User.class,notes = "query User by name")
     public Object queryByName(String name) {
         System.out.println("test........");
-        return userService.findByToken(name);
+        User user = userService.findByToken(name);
+        //过滤掉user中的remark token role实体中的id 
+        SimpleFilterProvider provider = new SimpleFilterProvider();
+        provider.addFilter("user", SimpleBeanPropertyFilter.serializeAllExcept("remark","token"));
+        provider.addFilter("role", SimpleBeanPropertyFilter.serializeAllExcept("id"));
+        try {
+            return objectMapper.writer(provider).writeValueAsString(user);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @RequestMapping(value = "createUser",method = RequestMethod.POST)

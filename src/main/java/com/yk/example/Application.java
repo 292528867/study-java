@@ -69,6 +69,8 @@ public class Application {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(new PreAuthorizationInterceptor());
             }
+
+
             //跨域
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedMethods(new String[]{"HEAD", "GET", "POST", "PUT", "DELETE"});

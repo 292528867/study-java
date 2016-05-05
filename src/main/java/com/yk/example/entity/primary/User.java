@@ -1,6 +1,7 @@
 package com.yk.example.entity.primary;
 
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.yk.example.entity.primary.Role;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "t_user")
+@JsonFilter("user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = -5554308939380869754L;
@@ -42,6 +44,7 @@ public class User implements Serializable {
         this.name = name;
         this.tel = tel;
     }
+
 
 
     public long getId() {

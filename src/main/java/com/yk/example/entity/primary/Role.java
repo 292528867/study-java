@@ -1,5 +1,6 @@
 package com.yk.example.entity.primary;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
  */
 @Entity
 @JsonIgnoreProperties("new")
+@JsonFilter("role")
 public class Role extends AbstractPersistable<Long> {
 
     private String name;

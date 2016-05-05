@@ -62,6 +62,11 @@ public class TwoDatasourceConfig {
         return druidDataSource;
     }
 
+    /**
+     * 注册filter
+     *
+     * @return
+     */
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
@@ -82,7 +87,7 @@ public class TwoDatasourceConfig {
     public LocalContainerEntityManagerFactoryBean primaryEntityManagerFactory(
             EntityManagerFactoryBuilder builder) {
         DataSource dataSource = primaryDataSource();
-        System.out.println("datasource---------"+dataSource);
+        System.out.println("datasource---------" + dataSource);
         return builder.dataSource(dataSource)
                 .packages("com.yk.example.entity.primary")
                 .properties(jpaProperties.getHibernateProperties(dataSource))
@@ -93,7 +98,7 @@ public class TwoDatasourceConfig {
     public LocalContainerEntityManagerFactoryBean secondaryEntityManagerFactory(
             EntityManagerFactoryBuilder builder) {
         DataSource dataSource = secondaryDataSource();
-        System.out.println("datasource---------"+dataSource);
+        System.out.println("datasource---------" + dataSource);
         return builder.dataSource(dataSource)
                 .packages("com.yk.example.entity.secondary")
                 .properties(jpaProperties.getHibernateProperties(dataSource))
