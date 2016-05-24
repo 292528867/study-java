@@ -79,12 +79,12 @@ public class PostServiceTest extends ApplicationTest {
         post2.setTags(Arrays.asList(tag));
         postService.save(post);
 
-        Page<Post> posts  = postService.findByTagsName("tech", new PageRequest(0,10));
-        Page<Post> posts2  = postService.findByTagsName("tech", new PageRequest(0,10));
-        Page<Post> posts3  = postService.findByTagsName("maz", new PageRequest(0,10));
+        Page<Post> posts  = postService.findByTagsName("t", new PageRequest(0,10));
+//        Page<Post> posts2  = postService.findByTagsName("tech", new PageRequest(0,10));
+//        Page<Post> posts3  = postService.findByTagsName("maz", new PageRequest(0,10));
         System.out.println(posts.getTotalElements());
-        System.out.println(posts2.getTotalElements());
-        System.out.println(posts3.getTotalElements());
+//        System.out.println(posts2.getTotalElements());
+//        System.out.println(posts3.getTotalElements());
 
     }
 }

@@ -28,14 +28,14 @@ public class UserController {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @RequestMapping(value = "queryByName",method = RequestMethod.GET)
-    @ApiOperation(value = "查询用户",response = User.class,notes = "query User by name")
+    @RequestMapping(value = "queryByName", method = RequestMethod.GET)
+    @ApiOperation(value = "查询用户", response = User.class, notes = "query User by name")
     public Object queryByName(String name) {
         System.out.println("test........");
         User user = userService.findByToken(name);
-        //过滤掉user中的remark token role实体中的id 
+        //过滤掉user中的remark token role实体中的id
         SimpleFilterProvider provider = new SimpleFilterProvider();
-        provider.addFilter("user", SimpleBeanPropertyFilter.serializeAllExcept("remark","token"));
+        provider.addFilter("user", SimpleBeanPropertyFilter.serializeAllExcept("remark", "token"));
         provider.addFilter("role", SimpleBeanPropertyFilter.serializeAllExcept("id"));
         try {
             return objectMapper.writer(provider).writeValueAsString(user);
@@ -45,25 +45,25 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping(value = "createUser",method = RequestMethod.POST)
-    @ApiOperation(value = "创建用户",response = User.class,notes = "创建用户")
+    @RequestMapping(value = "createUser", method = RequestMethod.POST)
+    @ApiOperation(value = "创建用户", response = User.class, notes = "创建用户")
     public Object createUser(@RequestBody User user) {
-      return   userService.createUser(user);
+        return userService.createUser(user);
     }
 
-    @RequestMapping(value = "test",method = RequestMethod.GET)
+    @RequestMapping(value = "test", method = RequestMethod.GET)
     public Object helloWorld(String name) {
         userService.testException(name);
         return "hello , world";
     }
 
-    @RequestMapping(value = "hello",method = RequestMethod.GET)
+    @RequestMapping(value = "hello", method = RequestMethod.GET)
     public Object helloWorld1() {
         return "hello , world";
     }
 
     @PreAuthorise
-    @RequestMapping(value = "test2",method = RequestMethod.GET)
+    @RequestMapping(value = "test2", method = RequestMethod.GET)
     public Object helloWorld2() {
         return "hello , world";
     }
