@@ -8,6 +8,8 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.yk.example.entity.primary.User;
 import com.yk.example.security.PreAuthorise;
 import com.yk.example.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("user")
 public class UserController {
+
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -40,6 +44,7 @@ public class UserController {
         try {
             return objectMapper.writer(provider).writeValueAsString(user);
         } catch (JsonProcessingException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
         }
         return null;
@@ -48,6 +53,7 @@ public class UserController {
     @RequestMapping(value = "createUser", method = RequestMethod.POST)
     @ApiOperation(value = "创建用户", response = User.class, notes = "创建用户")
     public Object createUser(@RequestBody User user) {
+
         return userService.createUser(user);
     }
 
@@ -59,6 +65,7 @@ public class UserController {
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public Object helloWorld1() {
+        testException();
         return "hello , world";
     }
 
@@ -66,5 +73,14 @@ public class UserController {
     @RequestMapping(value = "test2", method = RequestMethod.GET)
     public Object helloWorld2() {
         return "hello , world";
+    }
+
+    private void testException() {
+        String s = null;
+        try {
+            s.toString();
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
+        }
     }
 }
