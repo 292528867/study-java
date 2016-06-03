@@ -5,7 +5,7 @@ package com.yk.example.utils;
  */
 public class StringTests {
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         StringObject sb = new StringObject();
         StringObject sb1 = sb;
 
@@ -23,12 +23,12 @@ public class StringTests {
         System.out.println(l);
         System.out.println(s);
 
-    /*    String s1 = "ssss";
+    *//*    String s1 = "ssss";
         String s = new String("ssss");
         System.out.println(s1 == s);
         System.out.println(s.hashCode());
-        System.out.println(s1.hashCode());*/
-    }
+        System.out.println(s1.hashCode());*//*
+    }*/
 
     public static void change(StringObject sb,char[] chars,long l,String s) {
         sb = new StringObject();

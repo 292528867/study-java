@@ -2,7 +2,6 @@ package com.yk.example.entity.primary;
 
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import com.yk.example.entity.primary.Role;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,8 +32,8 @@ public class User implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
-     joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
     public User() {
@@ -44,7 +43,6 @@ public class User implements Serializable {
         this.name = name;
         this.tel = tel;
     }
-
 
 
     public long getId() {
@@ -97,4 +95,44 @@ public class User implements Serializable {
     public void setToken(String token) {
         this.token = token;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) { //只是一个优化
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        User user = (User) obj;
+        return this.id == user.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = (int) (PRIME * result + getId());
+        return result;
+    }
+/*
+    public static void main(String[] args) {
+        User user = new User();
+        User user1 = new User();
+
+        user.setId(100);
+        user1.setId(100);
+
+        System.out.println(user.equals(user1));
+
+
+        Set<User> users = new HashSet<User>();
+        users.add(user);
+        users.add(user1);
+        System.out.println(users);
+
+    }*/
 }

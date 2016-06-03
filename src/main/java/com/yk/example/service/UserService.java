@@ -9,6 +9,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created by yk on 16/1/20.
  */
@@ -40,6 +42,7 @@ public class UserService {
 
     /**
      * 修改缓存和数据库中的数据
+     *
      * @param user
      * @return
      */
@@ -48,9 +51,23 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    @Cacheable(value = "userTokenCache",key = "'study:test:user:token:' + #p0 ")
+    @Cacheable(value = "userTokenCache", key = "'study:test:user:token:' + #p0 ")
     public User findByToken(String token) {
         return userRepository.findByToken(token);
+    }
+
+    @Cacheable(value = "findAllOrderByName", key = "'study:test:user:all:orderByName'")
+    public List<User> findAllOrderByName() {
+        return userRepository.findAllOrderByName();
+    }
+
+    /**
+     * 测试多表关联
+     *
+     * @return
+     */
+    public List<User> testMoreTableRelation() {
+        return userRepository.findUserRelationByTel();
     }
 
     public void testTwoDatasource() {

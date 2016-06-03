@@ -9,6 +9,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 
 /**
  * Created by yk on 15/12/28.
@@ -27,8 +28,8 @@ public class RedisConfig {
 
         StringRedisTemplate redisTemplate = getRedisTemplate();
 
-
-        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        //TODO redis 缓存时 objectMapper writer 报错 没有provider 所有缓存时不用jackson序列化 改为jdk序列化
+        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
 
         return new RedisCacheManager(redisTemplate);
     }

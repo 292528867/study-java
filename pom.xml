@@ -13,6 +13,9 @@
         <version>1.3.5.RELEASE</version>
     </parent>
 
+    <properties>
+        <jackson.version>2.3.0</jackson.version>
+    </properties>
 
     <dependencies>
 
@@ -56,22 +59,27 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-joda</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-hibernate4</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
@@ -100,7 +108,7 @@
             <version>1.0.2</version>
         </dependency>
 
-       <!-- druid -->
+        <!-- druid -->
         <dependency>
             <groupId>com.alibaba.druid</groupId>
             <artifactId>druid-wrapper</artifactId>
@@ -121,9 +129,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.3.RELEASE</version>
-                <configuration>
-                    <fork>true</fork>
-                </configuration>
             </plugin>
         </plugins>
     </build>
