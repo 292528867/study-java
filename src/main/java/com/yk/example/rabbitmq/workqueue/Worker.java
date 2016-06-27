@@ -15,11 +15,6 @@ public class Worker {
     public static void main(String[] args) throws Exception {
         Worker worker1 = new Worker();
         worker1.DoWork();
-        Worker worker2 = new Worker();
-        worker2.DoWork();
-        Worker worker3 = new Worker();
-        worker3.DoWork();
-
     }
 
     private void DoWork() throws IOException, TimeoutException {
@@ -27,9 +22,11 @@ public class Worker {
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();
-        boolean durable = true;
-        channel.queueDeclare(TASK_QUEUE_NAME, false, false, false, null);
+        boolean durable = true; //RabbitMQ will never lose our queue.
+        channel.queueDeclare(TASK_QUEUE_NAME, durable, false, false, null);
 
+        int prefetchCount = 1;
+        channel.basicQos(prefetchCount);
         final Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
