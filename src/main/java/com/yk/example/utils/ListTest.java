@@ -10,10 +10,10 @@ import java.util.ListIterator;
  */
 public class ListTest {
 
-  /*  public static void main(String[] args) {
+    public static void main(String[] args) {
         testListIterator();
         testPerBtwnArlAndLkl();
-    }*/
+    }
 
     /**
      * list那个remove回抛异常是因为快速失败的机制，
@@ -35,12 +35,16 @@ public class ListTest {
             }
         }*/
 
-        ListIterator listIterator = list.listIterator();
+      /*  ListIterator listIterator = list.listIterator();
         while (listIterator.hasNext()) {
             String s = String.valueOf(listIterator.next());
             if (s.length() > 1) {
                 listIterator.remove();
             }
+        }*/
+        for (ListIterator listIterator = list.listIterator(); listIterator.hasNext(); ) {
+            String s = String.valueOf(listIterator.next());
+            if (s.length()>1) listIterator.remove();
         }
         System.out.println(list.size());
     }

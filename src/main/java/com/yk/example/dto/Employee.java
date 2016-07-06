@@ -71,7 +71,8 @@ public class Employee implements Cloneable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.hireDay, this.name, this.salary);
+        // return Objects.hash(this.hireDay, this.name, this.salary);
+        return 0;
     }
 
     public void update(ArrayList list) {

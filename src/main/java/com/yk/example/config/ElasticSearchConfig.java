@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @Configuration
 @PropertySource("classpath:elasticsearch.properties")
 @EnableElasticsearchRepositories(basePackages = "com.yk.example.repository.elasticsearch")
-public class ElasticsearchConfig {
+public class ElasticSearchConfig {
 
     @Resource
     private Environment environment;
