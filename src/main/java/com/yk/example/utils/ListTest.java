@@ -1,5 +1,7 @@
 package com.yk.example.utils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,8 +46,13 @@ public class ListTest {
         }*/
         for (ListIterator listIterator = list.listIterator(); listIterator.hasNext(); ) {
             String s = String.valueOf(listIterator.next());
-            if (s.length()>1) listIterator.remove();
+            if (s.length() > 1) listIterator.remove();
         }
+        StringBuilder sb = new StringBuilder();
+        System.out.println(sb.append(" ").toString().length() == 0);
+        System.out.println(sb.toString().length() == 0);
+        System.out.println(StringUtils.isNotEmpty(sb.toString()));
+        System.out.println(StringUtils.isNotBlank(sb.toString()));
         System.out.println(list.size());
     }
 
