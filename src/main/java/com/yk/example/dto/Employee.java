@@ -1,6 +1,12 @@
 package com.yk.example.dto;
 
-import java.util.*;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -13,6 +19,30 @@ public class Employee implements Cloneable {
     private String name;
 
     private double salary;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTest1() {
+        return test1;
+    }
+
+    public void setTest1(String test1) {
+        this.test1 = test1;
+    }
+
+    public String getTest2() {
+        return test2;
+    }
+
+    public void setTest2(String test2) {
+        this.test2 = test2;
+    }
+
+    public String test1;
+
+    public String test2;
 
     public Employee() {
     }
@@ -66,13 +96,24 @@ public class Employee implements Cloneable {
             return false;
         }
         Employee other = (Employee) obj;
-        return this.hireDay.equals(other.hireDay) && this.name.equals(other.name) && this.salary == other.salary;
+//        return this.hireDay.equals(other.hireDay) && this.name.equals(other.name) && this.salary == other.salary;
+        return new EqualsBuilder().append(this.hireDay, other.hireDay)
+                .append(this.name, other.name)
+                .append(this.salary, other.salary).isEquals();
     }
 
     @Override
     public int hashCode() {
         // return Objects.hash(this.hireDay, this.name, this.salary);
-        return 0;
+        return new HashCodeBuilder()
+                .append(hireDay)
+                .append(name)
+                .append(salary).hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
     public void update(ArrayList list) {

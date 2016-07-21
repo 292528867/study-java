@@ -67,7 +67,7 @@ public class ListTest {
         long startTime = System.nanoTime();
         long endTime;
         long duration;
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < 1000000; i++)
             arrayList.add(i);
         endTime = System.nanoTime();
         duration = endTime - startTime;
@@ -75,11 +75,25 @@ public class ListTest {
 
         // LinkedList add方法
         startTime = System.nanoTime();
-        for (int i = 0; i < 100000; i++)
+        for (int i = 0; i < 1000000; i++)
             linkedList.add(i);
         endTime = System.nanoTime();
         duration = endTime - startTime;
         System.out.println("LinkedList add: " + duration);
+
+        //插入1000个
+        for (int i = 0; i < 5000; i++)
+            arrayList.add(i);
+        endTime = System.nanoTime();
+        duration = endTime - startTime;
+        System.out.println("ArrayList add 1000:  " + duration);
+
+        startTime = System.nanoTime();
+        for (int i = 0; i < 5000; i++)
+            linkedList.add(i);
+        endTime = System.nanoTime();
+        duration = endTime - startTime;
+        System.out.println("LinkedList add 1000: " + duration);
 
         // ArrayList get方法
         startTime = System.nanoTime();
