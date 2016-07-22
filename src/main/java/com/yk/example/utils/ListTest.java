@@ -2,10 +2,7 @@ package com.yk.example.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * Created by yk on 16/5/27.
@@ -13,8 +10,24 @@ import java.util.ListIterator;
 public class ListTest {
 
     public static void main(String[] args) {
-        testListIterator();
-        testPerBtwnArlAndLkl();
+       // testListIterator();
+      //  testPerBtwnArlAndLkl();
+        Integer m[] = {1,3,6,4,9,8,10,15,14};
+        List<Integer> list = Arrays.asList(m);
+        System.out.println(list.size());
+        Collections.sort(list, new Comparator<Integer>() {
+                    @Override
+                    public int compare(Integer o1, Integer o2) {
+                        if (o1 > o2) {
+                            return 1;
+                        }
+                        return 0;
+                    }
+                }
+        );
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 
     /**
@@ -127,4 +140,6 @@ public class ListTest {
         duration = endTime - startTime;
         System.out.println("LinkedList remove: " + duration);
     }
+
+
 }
