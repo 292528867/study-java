@@ -10,23 +10,27 @@ import java.util.*;
 public class ListTest {
 
     public static void main(String[] args) {
-       // testListIterator();
-      //  testPerBtwnArlAndLkl();
-        Integer m[] = {1,3,6,4,9,8,10,15,14};
-        List<Integer> list = Arrays.asList(m);
-        System.out.println(list.size());
-        Collections.sort(list, new Comparator<Integer>() {
-                    @Override
-                    public int compare(Integer o1, Integer o2) {
-                        if (o1 > o2) {
-                            return 1;
-                        }
-                        return 0;
-                    }
-                }
-        );
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        // testListIterator();
+        //  testPerBtwnArlAndLkl();
+        testCompareTo();
+//        testListRemove();
+
+    }
+
+    /**
+     * remove是先找到第一个aaa的所处数组下角标位置后移除
+     */
+    private static void testListRemove() {
+        List<String> list = new ArrayList<String>();
+        list.add("aaa");
+        list.add("bbb");
+        list.add("aaa");
+        list.add("ccc");
+        list.remove("aaa");//注意第3个元素aaa没有被remove掉
+        String ss = list.remove(0); //返回当前下角标位置所在的元素
+        System.out.println(ss);
+        for (String s : list) {
+            System.out.println(s);
         }
     }
 
@@ -139,6 +143,25 @@ public class ListTest {
         endTime = System.nanoTime();
         duration = endTime - startTime;
         System.out.println("LinkedList remove: " + duration);
+    }
+
+    public static void testCompareTo() {
+        Integer m[] = {1, 3, 6, 4, 9, 8, 10, 15, 14};
+        List<Integer> list = Arrays.asList(m);
+        System.out.println(list.size());
+        Collections.sort(list, new Comparator<Integer>() {
+                    @Override
+                    public int compare(Integer o1, Integer o2) {
+                        if (o1 > o2) {
+                            return 1;
+                        }
+                        return 0;
+                    }
+                }
+        );
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 
 
