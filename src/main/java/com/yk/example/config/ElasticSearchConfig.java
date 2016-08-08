@@ -24,14 +24,15 @@ public class ElasticSearchConfig {
 
     @Resource
     private Environment environment;
+
     @Bean
     public Client client() {
-        TransportClient client = new TransportClient();
+       /* TransportClient client = new TransportClient();
         TransportAddress address = new InetSocketTransportAddress(
                 environment.getProperty("elasticsearch.host"),
                 Integer.parseInt(environment.getProperty("elasticsearch.port")));
-        client.addTransportAddress(address);
-        return client;
+        client.addTransportAddress(address);*/
+        return null;
     }
 
     @Bean
