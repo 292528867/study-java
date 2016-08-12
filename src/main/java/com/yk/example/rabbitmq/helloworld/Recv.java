@@ -11,8 +11,7 @@ public class Recv {
 
     public static final String QUEUE_NAME = "hello";
 
-
-    public static void main(String[] args) throws Exception {
+    public  void recvMessage() throws Exception{
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();

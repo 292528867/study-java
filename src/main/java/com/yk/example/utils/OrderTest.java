@@ -6,7 +6,7 @@ package com.yk.example.utils;
  */
 public final class OrderTest {
 
-    public static void main(String[] args) {
+    public void order() {
         int a[] = {1, 3, 5, 7};
         int b[] = {2, 3, 4, 8, 9};
         int m[] = new int[a.length + b.length];

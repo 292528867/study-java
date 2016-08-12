@@ -1,13 +1,18 @@
 package com.yk.example.stack;
 
+import org.junit.*;
+
 import java.util.Scanner;
 
-/**
- * Created by yukui on 2016/7/27.
- */
-public class Test {
+import static org.junit.Assert.*;
 
-    public static void main(String[] args) throws  Exception{
+/**
+ * Created by yukui on 2016/8/12.
+ */
+public class StackTest {
+
+    @org.junit.Test
+    public void test() throws Exception {
         SequenceStack ss = new SequenceStack();
         Scanner in = new Scanner(System.in);
         int temp;
@@ -20,4 +25,5 @@ public class Test {
             System.out.println(ss.pop());
         }
     }
+
 }

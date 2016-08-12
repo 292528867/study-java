@@ -12,7 +12,7 @@ public class NewTask {
 
     public static final String TASK_QUEUE_NAME = "taskQueue";
 
-    public static void main(String[] args) throws Exception {
+    public void newTask(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();

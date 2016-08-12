@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class ReflectTest {
 
-    public static void main(String[] args) {
+    public void test() {
         Class<Employee> employeeClass = Employee.class;
         Field[] declaredFields = employeeClass.getDeclaredFields();
         for (int i = 0; i < declaredFields.length; i++) {//获取所有的成员变量包括私有的
@@ -20,7 +20,7 @@ public class ReflectTest {
 //            System.out.println(field);
         }
 
-        Employee employee = new Employee(new Date(),"test",1.2);
+        Employee employee = new Employee(new Date(), "test", 1.2);
         try {
             Field nameField = employeeClass.getDeclaredField("name");
             nameField.setAccessible(true);

@@ -9,13 +9,13 @@ import java.util.*;
  */
 public class ListTest {
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         // testListIterator();
         //  testPerBtwnArlAndLkl();
         testCompareTo();
 //        testListRemove();
 
-    }
+    }*/
 
     /**
      * remove是先找到第一个aaa的所处数组下角标位置后移除

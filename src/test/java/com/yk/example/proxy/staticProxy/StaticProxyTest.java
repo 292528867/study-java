@@ -1,11 +1,17 @@
 package com.yk.example.proxy.staticProxy;
 
-/**
- * Created by yukui on 2016/8/3.
- */
-public class TestCount {
+import org.junit.Test;
 
-    public static void main(String[] args) {
+import static org.junit.Assert.*;
+
+/**
+ * Created by yukui on 2016/8/12.
+ */
+public class StaticProxyTest {
+
+
+    @Test
+    public void test() {
         CountImp countImp = new CountImp();
         CountProxy proxy = new CountProxy(countImp);
         proxy.queryCount();

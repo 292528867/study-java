@@ -1,0 +1,18 @@
+import  com.yk.example.drools.helloworld.State
+
+rule Bootstrap
+     when
+        a : State( name == "A" ,status == State.NOTRUE)
+     then
+        System.out.println(a.getName() + "finished");
+        a.setStatus(State.FINISHED);
+      end
+
+rule  " A to B"
+      when
+         State( name == "A" ,status == State.FINISHED)
+         b : State( name == "B" ,status == State.NOTRUE)
+      then
+          System.out.println( b.getName() + " finished");
+          b.setStatus( State.FINISHED );
+       end

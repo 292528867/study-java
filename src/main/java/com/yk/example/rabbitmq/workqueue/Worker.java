@@ -12,10 +12,10 @@ public class Worker {
 
     public static final String TASK_QUEUE_NAME = "taskQueue";
 
-    public static void main(String[] args) throws Exception {
+/*    public static void main(String[] args) throws Exception {
         Worker worker1 = new Worker();
         worker1.DoWork();
-    }
+    }*/
 
     private void DoWork() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();

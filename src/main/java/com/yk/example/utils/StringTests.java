@@ -30,7 +30,7 @@ public class StringTests {
         System.out.println(s1.hashCode());*//*
     }*/
 
-    public static void change(StringObject sb,char[] chars,long l,String s) {
+    public static void change(StringObject sb, char[] chars, long l, String s) {
         sb = new StringObject();
         System.out.println(sb);
         sb.setName("456");
@@ -41,6 +41,7 @@ public class StringTests {
     }
 
 }
+
 class StringObject {
     String name;
     long aLong;

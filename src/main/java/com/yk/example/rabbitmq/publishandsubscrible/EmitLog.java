@@ -11,7 +11,7 @@ public class EmitLog {
 
     public static final String EXCHANGE_NAME = "logs";
 
-    public static void main(String[] args) throws Exception {
+    public void publish() throws  Exception{
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
