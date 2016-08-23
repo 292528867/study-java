@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by yk on 16/5/27.
  */
-public class ListTest {
+public class ListExample {
 
 /*    public static void main(String[] args) {
         // testListIterator();

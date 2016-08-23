@@ -1,6 +1,5 @@
 package com.yk.example.utils;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
@@ -9,7 +8,7 @@ import java.util.Map;
  * hashMap非现成安全的 以通过Collections类的静态方法synchronizedMap获得线程安全的HashMap。
  * Created by yk on 16/3/22.
  */
-public class HashMapTest {
+public class HashMapExample {
 
     //    public static final Map<String,String> map = new HashMap();
     public static final Map<String, String> map = new Hashtable<String, String>();
@@ -66,8 +65,8 @@ public class HashMapTest {
     }
 
    /* public static void main(String[] args) throws Exception {
-//        HashMapTest.testIsTreadSecurity();
-//          HashMapTest.compareToHashTable();
+//        HashMapExample.testIsTreadSecurity();
+//          HashMapExample.compareToHashTable();
         System.out.println(2.0-1.1);
         BigDecimal bd = new BigDecimal(2.0-1.1);
         System.out.println(bd.floatValue());
