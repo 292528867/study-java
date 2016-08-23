@@ -1,4 +1,4 @@
-package com.yk.example.drools.score;
+package com.yk.example.drools.point;
 
 /**
  * 积分计算对象

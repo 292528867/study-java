@@ -3,6 +3,7 @@ package com.yk.example.drools;
 import com.yk.example.drools.clock.Clock;
 import com.yk.example.drools.helloworld.Message;
 import com.yk.example.drools.helloworld.State;
+import com.yk.example.drools.point.PointDomain;
 import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.event.rule.DebugAgendaEventListener;
@@ -20,6 +21,7 @@ public class DroolsExampleTest {
 
 
     static {
+        System.setProperty("drools.dateformat", "yyyy-MM-dd HH:mm:ss");
         kieServices = KieServices.Factory.get();
         kieContainer = kieServices.getKieClasspathContainer();
     }
@@ -58,5 +60,26 @@ public class DroolsExampleTest {
         kieSession.insert(d);
         kieSession.fireAllRules();
         kieSession.dispose();
+    }
+
+    @Test
+    public void pointDomainTest() {
+        KieSession kieSession = kieContainer.newKieSession("pointKS");
+        final PointDomain pointDomain = new PointDomain();
+        pointDomain.setUserName("hello kity");
+        pointDomain.setBackMondy(100d);
+        pointDomain.setBuyMoney(500d);
+        pointDomain.setBackNums(1);
+        pointDomain.setBuyNums(5);
+        pointDomain.setBillThisMonth(5);
+        pointDomain.setBirthDay(true);
+        pointDomain.setPoint(0l);
+        kieSession.insert(pointDomain);
+        kieSession.fireAllRules();
+        kieSession.dispose();
+        System.out.println("执行完毕BillThisMonth："+pointDomain.getBillThisMonth());
+        System.out.println("执行完毕BuyMoney："+pointDomain.getBuyMoney());
+        System.out.println("执行完毕BuyNums："+pointDomain.getBuyNums());
+        System.out.println("执行完毕规则引擎决定发送积分："+pointDomain.getPoint());
     }
 }

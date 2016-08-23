@@ -1,10 +1,6 @@
 package com.yk.example.stack;
 
-import org.junit.*;
-
 import java.util.Scanner;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by yukui on 2016/8/12.

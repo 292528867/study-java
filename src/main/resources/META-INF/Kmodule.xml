@@ -12,4 +12,8 @@
     <kbase name="stateExample" packages="helloworld">
         <ksession name="StateExampleKS"/>
     </kbase>
+
+    <kbase name="point" packages="point">
+        <ksession name="pointKS" />
+    </kbase>
 </kmodule>

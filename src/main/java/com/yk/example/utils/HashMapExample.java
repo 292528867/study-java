@@ -60,16 +60,9 @@ public class HashMapExample {
         try {
             map2.put(null, null);
         } catch (Exception e) {
-            System.out.println("hashtable的健值对不能为null");
+            System.out.println("hashtable的健值对都不能为null");
         }
     }
 
-   /* public static void main(String[] args) throws Exception {
-//        HashMapExample.testIsTreadSecurity();
-//          HashMapExample.compareToHashTable();
-        System.out.println(2.0-1.1);
-        BigDecimal bd = new BigDecimal(2.0-1.1);
-        System.out.println(bd.floatValue());
-        System.out.println(2.0/0);
-    }*/
+
 }
