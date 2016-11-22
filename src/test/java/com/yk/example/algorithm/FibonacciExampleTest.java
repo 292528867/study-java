@@ -1,5 +1,6 @@
-package com.yk.example.utils;
+package com.yk.example.algorithm;
 
+import com.yk.example.algorithm.FibonacciExample;
 import org.junit.Test;
 
 /**
@@ -15,11 +16,6 @@ public class FibonacciExampleTest {
         long end1 = System.currentTimeMillis();
         System.out.println("2层递归所需时间:"+ (end1-start1)+"最终结果是："+result1);
 
-        long start2 = System.currentTimeMillis();
-        long result2 = FibonacciExample.fibonacci2(n);
-        long end2 = System.currentTimeMillis();
-        System.out.println("1层递归所需时间:"+ (end2-start2)+"最终结果是："+result2);
-
         long start3 = System.currentTimeMillis();
         long result3 = FibonacciExample.fibonacci3(n);
         long end3 = System.currentTimeMillis();
@@ -28,7 +24,7 @@ public class FibonacciExampleTest {
         long start4 = System.currentTimeMillis();
         long result4 = FibonacciExample.fibonacci4(n);
         long end4 = System.currentTimeMillis();
-        System.out.println("矩阵所需时间:"+ (end3-start3)+"最终结果是："+result4);
+        System.out.println("矩阵所需时间:"+ (end4-start4)+"最终结果是："+result4);
 
     }
 }

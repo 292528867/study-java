@@ -6,13 +6,6 @@ package com.yk.example.algorithm;
  * 1.若它的左子树不为空，左子树上所有的节点的值均小于它的根节点
  * 2.若它的右子树不为空，右子树上所有的节点的值均大于它的根节点
  * 3.它的左子树，右子树也为二叉查找树
- * 8
- * |   \
- * 3     10
- * |  \       \
- * 1    6       14
- * |  \      |
- * 4    7    13
  * Created by yukui on 2016/9/8.
  */
 public class BinarySearchTree<T extends Comparable<? super T>> {
@@ -36,7 +29,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 
-    private BinaryNode<T> rootTree;
+    private  BinaryNode<T> rootTree;
 
     /**
      * 构造一颗空的二叉查找树
@@ -48,7 +41,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     /**
      * 清空二叉查找树
      */
-    public void clear() {
+    public  void clear() {
         rootTree = null;
     }
 
@@ -115,7 +108,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return findMin(node.left);//递归查找
     }
 
-    public T findMax() {
+    public  T findMax() {
         if (isEmpty()) {
             return null;
         }
@@ -180,8 +173,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         BinaryNode<Integer> root = new BinaryNode<Integer>(6, node2, node8);
         return root;
     }
-
-    public void preOrder(BinaryNode node) {
+    
+  
+    public static void preOrder(BinaryNode node) {
         if (node != null) {
             System.out.print(node.data);
             preOrder(node.left);

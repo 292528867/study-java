@@ -1,4 +1,4 @@
-package com.yk.example.utils;
+package com.yk.example.algorithm;
 
 /**
  * 斐波那契数列 (F0 = 0 ,F1=1, Fn=Fn-1+Fn-2)
@@ -27,24 +27,6 @@ public class FibonacciExample {
         return fibonacci1(n - 1) + fibonacci1(n - 2);
     }
 
-    /**
-     * 1层递归  (临时值)
-     *
-     * @param n
-     * @return
-     */
-    public static long fibonacci2(int n) {
-        long result , temp = 1;
-        if (n == 0) {
-            result = 0;
-        } else if (n == 1) {
-            result = 1;
-        } else {
-            result = temp + fibonacci2(n - 2);
-            temp = result; //将fn-1的值赋给temp
-        }
-        return result;
-    }
 
     /**
      *  递推
